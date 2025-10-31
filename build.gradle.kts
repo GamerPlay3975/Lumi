@@ -20,6 +20,9 @@ java {
 
 repositories {
     maven {
+        url = uri("https://repo.lanink.cn/repository/maven-public/")
+    }
+    maven {
         url = uri("https://repo.opencollab.dev/maven-releases/")
         mavenContent { releasesOnly() }
     }
@@ -27,11 +30,10 @@ repositories {
         url = uri("https://repo.opencollab.dev/maven-snapshots/")
         mavenContent { snapshotsOnly() }
     }
-    maven {
-        url = uri("https://repo.lanink.cn/repository/maven-public/")
-    }
     mavenCentral()
     maven("https://storehouse.okaeri.eu/repository/maven-public/")
+    maven("https://s01.oss.sonatype.org/content/repositories/snapshots/")
+    maven("https://oss.sonatype.org/content/repositories/snapshots/")
 }
 
 val log4j2Version = "2.17.1"
