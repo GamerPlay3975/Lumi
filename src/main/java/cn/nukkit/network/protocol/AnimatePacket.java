@@ -14,12 +14,16 @@ public class AnimatePacket extends DataPacket {
 
     public long eid;
     public Action action;
-    public float rowingTime;
+    public float data = 0.0f;
+    public float rowingTime = 0.0f;
 
     @Override
     public void decode() {
         this.action = Action.fromId(this.getVarInt());
         this.eid = getEntityRuntimeId();
+        if(protocol >= ProtocolInfo.v1_21_120) {
+            this.data = this.getLFloat();
+        }
         if (this.action == Action.ROW_RIGHT || this.action == Action.ROW_LEFT) {
             this.rowingTime = this.getLFloat();
         }
@@ -30,6 +34,9 @@ public class AnimatePacket extends DataPacket {
         this.reset();
         this.putVarInt(this.action.getId());
         this.putEntityRuntimeId(this.eid);
+        if(protocol >= ProtocolInfo.v1_21_120) {
+            this.putLFloat(this.data);
+        }
         if (this.action == Action.ROW_RIGHT || this.action == Action.ROW_LEFT) {
             this.putLFloat(this.rowingTime);
         }
