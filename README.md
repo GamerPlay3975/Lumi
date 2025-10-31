@@ -14,6 +14,9 @@ Lumi is a server software based on [Nukkit-MOT](https://github.com/MemoriesOfTim
 5. Better AntiXray system
 6. Better API (effects, food, projectiles and etc.)
 
+### 🎮 Added New Vanilla Features:
+#### ⚡ Added Command Blocks Support
+
 ### How to install?
 1. Install java 21 or higher
 2. Download the .jar file from the links below
